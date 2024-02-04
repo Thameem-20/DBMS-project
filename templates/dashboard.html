@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %} Dashboard {% endblock title %}
+{% block body %}
+    <h1>Login success!</h1>
+    <h4>Welcome, {{ username }}!</h4>
+
+    <h2>Turfs</h2>
+    <ul>
+        {% for turf in turfs %}
+            <li><a href="{{ url_for('turf_detail', turf_id=turf.id) }}">{{ turf.turf_name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock body %}

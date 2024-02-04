@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block title %} Login {% endblock title %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock head %}
+{% block body %}
+    <h1>Login Page</h1>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.username_email.label }} {{ form.username_email }}
+        {{ form.password.label }} {{ form.password }}
+        {{ form.submit }}
+    </form>
+    <a href="{{ url_for('register') }}">Don't have an Account? Sign-up</a>
+{% endblock body %}
