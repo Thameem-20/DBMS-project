@@ -195,6 +195,12 @@ def players_list(game_id):
     players = game.players
     return render_template('players_list.html', players=players)
 
+@app.route('/clear_hosted_games', methods=['GET'])
+def clear_hosted_games():
+    Game.query.delete()
+    db.session.commit()
+
+    return 'Hosted games table cleared successfully!'
 
 if __name__ == '__main__':
     if __name__ == '__main__':
