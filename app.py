@@ -140,10 +140,12 @@ def host_game(turf_id):
         # Get form data
         host_name = current_user.username
         host_phone = request.form.get('host_phone')
-        game_time_str = request.form.get('game_time')
+        game_date = request.form.get('game_date')
+        game_time = request.form.get('game_time')
 
-        # Convert game_time_str to datetime object
-        game_time = datetime.strptime(game_time_str, '%Y-%m-%dT%H:%M')
+        # Convert game_date and game_time to a datetime object
+        game_datetime_str = f'{game_date} {game_time}'
+        game_time = datetime.strptime(game_datetime_str, '%Y-%m-%d %H:%M')
 
         # Create a new game
         new_game = Game(turf_id=turf.id, host_name=host_name, host_phone=host_phone, game_time=game_time)
@@ -154,6 +156,29 @@ def host_game(turf_id):
         return redirect(url_for('turf_detail', turf_id=turf.id))
 
     return render_template('host_game.html', turf=turf)
+
+
+@app.route('/turf/<int:turf_id>/join_game/<int:game_id>', methods=['GET', 'POST'])
+@login_required
+def join_game(turf_id, game_id):
+    turf = Turf.query.get_or_404(turf_id)
+    game = Game.query.get_or_404(game_id)
+
+    if request.method == 'POST':
+        # Get form data
+        player_name = current_user.username
+        player_address = request.form.get('player_address')
+        player_phone = request.form.get('player_phone')
+
+        # Create a new player for the game
+        new_player = Player(game_id=game.id, player_name=player_name, player_address=player_address, player_phone=player_phone)
+        db.session.add(new_player)
+        db.session.commit()
+
+        flash('Joined the game successfully!', 'success')
+        return redirect(url_for('turf_detail', turf_id=turf.id))
+
+    return render_template('join_game.html', turf=turf, game=game)
 
 
 if __name__ == '__main__':

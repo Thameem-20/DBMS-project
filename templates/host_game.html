@@ -1,4 +1,4 @@
-
+<!-- host_game.html -->
 {% extends 'layout.html' %}
 {% block title %} Host a Game {% endblock title %}
 {% block body %}
@@ -7,8 +7,11 @@
         <label for="host_phone">Host Phone:</label>
         <input type="text" id="host_phone" name="host_phone" required>
         
+        <label for="game_date">Game Date:</label>
+        <input type="date" id="game_date" name="game_date" required>
+
         <label for="game_time">Game Time:</label>
-        <input type="datetime-local" id="game_time" name="game_time" required>
+        <input type="time" id="game_time" name="game_time" required>
 
         <input type="submit" value="Host Game">
     </form>
