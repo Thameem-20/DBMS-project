@@ -176,9 +176,20 @@ def join_game(turf_id, game_id):
         db.session.commit()
 
         flash('Joined the game successfully!', 'success')
-        return redirect(url_for('turf_detail', turf_id=turf.id))
+        
+        # Redirect to the players list after joining the game
+        return redirect(url_for('players_list', game_id=game.id))
 
     return render_template('join_game.html', turf=turf, game=game)
+
+from flask import render_template
+
+@app.route('/game/<int:game_id>/players_list')
+@login_required
+def players_list(game_id):
+    game = Game.query.get_or_404(game_id)
+    players = game.players
+    return render_template('players_list.html', players=players)
 
 
 if __name__ == '__main__':

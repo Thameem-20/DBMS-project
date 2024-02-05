@@ -1,0 +1,24 @@
+
+{% extends 'layout.html' %}
+{% block title %} Players List {% endblock title %}
+{% block body %}
+    <h1>Players List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+                <tr>
+                    <td>{{ player.player_name }}</td>
+                    <td>{{ player.player_address }}</td>
+                    <td>{{ player.player_phone }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}

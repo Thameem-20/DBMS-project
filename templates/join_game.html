@@ -1,13 +1,37 @@
 <!-- join_game.html -->
 {% extends 'layout.html' %}
-{% block title %} Join a Game {% endblock title %}
+{% block title %} Join Game {% endblock title %}
 {% block body %}
-    <h1>Join the Game on {{ turf.turf_name }}</h1>
+    <h1>Join Game on {{ turf.turf_name }}</h1>
+    
+    <!-- Display Players List -->
+    <h2>Players List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in game.players %}
+                <tr>
+                    <td>{{ player.player_name }}</td>
+                    <td>{{ player.player_address }}</td>
+                    <td>{{ player.player_phone }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Join Game Option -->
+    <h2>Join the Game</h2>
     <form method="POST" action="">
-        <label for="player_address">Player Address:</label>
+        <label for="player_address">Your Address:</label>
         <input type="text" id="player_address" name="player_address" required>
         
-        <label for="player_phone">Player Phone:</label>
+        <label for="player_phone">Your Phone:</label>
         <input type="text" id="player_phone" name="player_phone" required>
 
         <input type="submit" value="Join Game">
