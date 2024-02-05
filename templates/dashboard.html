@@ -1,3 +1,4 @@
+<!-- dashboard.html -->
 {% extends 'layout.html' %}
 {% block title %} Dashboard {% endblock title %}
 {% block body %}
@@ -5,9 +6,24 @@
     <h4>Welcome, {{ username }}!</h4>
 
     <h2>Turfs</h2>
-    <ul>
-        {% for turf in turfs %}
-            <li><a href="{{ url_for('turf_detail', turf_id=turf.id) }}">{{ turf.turf_name }}</a></li>
-        {% endfor %}
-    </ul>
+    <table border="1"> 
+        <thead>
+            <tr>
+                <th>Turf Name</th>
+                <th>Turf Location</th>
+                <th>Turf Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turf in turfs %}
+                <tr>
+                    <td>{{ turf.turf_name }}</td>
+                    <td>{{ turf.turf_location }}</td>
+                    <td>{{ turf.turf_phone }}</td>
+                    <td><a href="{{ url_for('turf_detail', turf_id=turf.id) }}">Select Turf</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock body %}

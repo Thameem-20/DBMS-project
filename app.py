@@ -6,6 +6,7 @@ from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import InputRequired, Email, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from datetime import datetime
+from flask_migrate import Migrate
 
 
 app = Flask(__name__)
@@ -19,6 +20,8 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
+
+migrate = Migrate(app, db)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -45,6 +48,7 @@ class Game(db.Model):
     host_name = db.Column(db.String(255), nullable=False)
     host_phone = db.Column(db.String(15), nullable=True)
     game_time = db.Column(db.DateTime, nullable=False)
+    sports = db.Column(db.String(50), nullable=False)
 
     # Relationship with Player
     players = db.relationship('Player', backref='game', lazy=True)
