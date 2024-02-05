@@ -12,6 +12,7 @@
         <thead>
             <tr>
                 <th>Game ID</th>
+                <th>Sport</th>
                 <th>Host</th>
                 <th>Date</th>
                 <th>Time</th>
@@ -22,6 +23,7 @@
             {% for game in hosted_games %}
                 <tr>
                     <td>{{ game.id }}</td>
+                    <td>{{ game.sports }}</td>
                     <td>{{ game.host_name }}</td>
                     <td>{{ game.game_time.strftime('%Y-%m-%d') }}</td>
                     <td>{{ game.game_time.strftime('%H:%M:%S') }}</td>

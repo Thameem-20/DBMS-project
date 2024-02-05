@@ -146,13 +146,14 @@ def host_game(turf_id):
         host_phone = request.form.get('host_phone')
         game_date = request.form.get('game_date')
         game_time = request.form.get('game_time')
+        sports = request.form.get('sports')
 
         # Convert game_date and game_time to a datetime object
         game_datetime_str = f'{game_date} {game_time}'
         game_time = datetime.strptime(game_datetime_str, '%Y-%m-%d %H:%M')
 
         # Create a new game
-        new_game = Game(turf_id=turf.id, host_name=host_name, host_phone=host_phone, game_time=game_time)
+        new_game = Game(turf_id=turf.id, host_name=host_name, host_phone=host_phone, game_time=game_time, sports=sports)
         db.session.add(new_game)
         db.session.commit()
 
