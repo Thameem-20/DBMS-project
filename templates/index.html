@@ -2,9 +2,11 @@
 {% block title %} Home {% endblock title %}
 {% block body %}
         <h1>Welcome to PlayQonnect</h1>
+        <div class="cont1">
         <a class="loginbtn"  href="{{url_for('register')}}">Signup</a>
         <br> 
         <br>
         <a class="loginbtn" href="{{url_for('login')}}">Login</a>
+        </div>
         
     {% endblock body %}
