@@ -4,9 +4,9 @@
         <h1>Sign-Up page</h1>
         <form method="POST" action="">
             {{form.hidden_tag() }}
-            {{form.username}}
-            {{form.email}}
-            {{form.password}}
+            Username: {{form.username}} <br>
+            Email: {{form.email}} <br>
+            Password: {{form.password}} <br>
             {{form.submit}}
         </form>
         <a href="{{url_for('login')}}">Already have an Account? Login</a>
