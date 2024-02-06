@@ -2,7 +2,7 @@
 {% block title %} Home {% endblock title %}
 {% block body %}
         <h1>Welcome to PlayQonnect</h1>
-        <a href="{{url_for('login')}}">Login</a>
+        <a class="loginbtn" href="{{url_for('login')}}">Login</a>
         <br>
-        <a href="{{url_for('register')}}">Signup</a>
+        <a class="loginbtn" href="{{url_for('register')}}">Signup</a>
     {% endblock body %}
