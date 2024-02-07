@@ -1,5 +1,8 @@
 body {
-  background-color: rgb(241, 214, 214);
+  background-image: url("../img/5685407.jpg");
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
 }
 h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -27,8 +30,4 @@ h1 {
   width: 100px;
   margin: auto;
   margin-top: 200px;
-}
-
-.landing{
-    background-image: ;
 }
