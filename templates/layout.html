@@ -3,37 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body{
-            background-color: rgb(241, 214, 214);
-        }
-        h1{
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: rgb(21, 2, 2);
-            text-align: center;
-        }
-        .loginbtn{
-            border: 3px solid  rgb(21, 2, 2);
-            border-radius: 20px;
-            padding: 5px 20px;
-            font-size: 20px;
-            text-decoration: none;
-            background-color: white;
-            color: black;
-        }
-        .loginbtn:hover{
-            background-color: rgb(201, 126, 126);
-            color: white;
-        }
-        .submit{
-            border: 2px solid black;
-        }
-        .cont1{
-            width: 100px;
-            margin: auto;
-            margin-top: 200px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{% block title %}  {% endblock title %}</title>
 </head>
 <body>
