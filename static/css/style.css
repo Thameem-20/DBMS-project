@@ -5,7 +5,7 @@ body {
   margin-left: auto;
 }
 .open {
-  height: 600px;
+  height: 650px;
   background-image: url("../img/5685407.jpg");
   background-repeat: no-repeat;
   /* background-position: center; */
@@ -13,11 +13,13 @@ body {
   background-size: 100% 100%;
 }
 
-h1 {
+.mainheading {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: white;
-  text-align: center;
+  text-align: right;
+  margin-right: 50px;
+  padding-top: 100px;
 }
 .loginbtn {
   border: 3px solid rgb(21, 2, 2);
@@ -27,6 +29,7 @@ h1 {
   text-decoration: none;
   background-color: white;
   color: black;
+  margin: 0 10px;
 }
 .loginbtn:hover {
   background-color: rgb(201, 126, 126);
@@ -37,6 +40,15 @@ h1 {
 }
 .cont1 {
   width: 100px;
-  margin-left: 903px;
-  margin-top: 378px;
+  margin-left: 1100px;
+  margin-top: 250px;
+  display: flex;
+}
+.turftab {
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+}
+.turfhead {
+  text-align: center;
 }

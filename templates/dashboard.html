@@ -1,29 +1,35 @@
 <!-- dashboard.html -->
-{% extends 'layout.html' %}
-{% block title %} Dashboard {% endblock title %}
-{% block body %}
-    <h1>Login success!</h1>
-    <h4>Welcome, {{ username }}!</h4>
+{% extends 'layout.html' %} {% block title %} Dashboard {% endblock title %} {%
+block body %}
+<h1 class="turfhead">Login success!</h1>
+<h4 class="turfhead">Welcome, {{ username }}!</h4>
 
-    <h2>Turfs</h2>
-    <table border="1"> 
-        <thead>
-            <tr>
-                <th>Turf Name</th>
-                <th>Turf Location</th>
-                <th>Turf Phone</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for turf in turfs %}
-                <tr>
-                    <td>{{ turf.turf_name }}</td>
-                    <td>{{ turf.turf_location }}</td>
-                    <td>{{ turf.turf_phone }}</td>
-                    <td><a href="{{ url_for('turf_detail', turf_id=turf.id) }}">Select Turf</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="turftab">
+  <h2 class="turfhead">Turfs</h2>
+  <table border="1" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Turf Name</th>
+        <th>Turf Location</th>
+        <th>Turf Phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for turf in turfs %}
+      <tr>
+        <td>{{ turf.turf_name }}</td>
+        <td>{{ turf.turf_location }}</td>
+        <td>{{ turf.turf_phone }}</td>
+        <td>
+          <a class="btn btn-success" href="{{ url_for('turf_detail', turf_id=turf.id) }}"></button>
+            Select
+        </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 {% endblock body %}
