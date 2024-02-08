@@ -1,4 +1,7 @@
 body {
+  background-image: url("../img/17580.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .navbar-nav {
@@ -8,7 +11,6 @@ body {
   height: 650px;
   background-image: url("../img/5685407.jpg");
   background-repeat: no-repeat;
-  /* background-position: center; */
   background-size: cover;
   background-size: 100% 100%;
 }

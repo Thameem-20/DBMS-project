@@ -31,8 +31,8 @@
         <td>{{ game.id }}</td>
         <td>{{ game.sports }}</td>
         <td>{{ game.host_name }}</td>
-        <td>{{ game.game_time.strftime('%Y-%m-%d') }}</td>
-        <td>{{ game.game_time.strftime('%H:%M:%S') }}</td>
+        <td>{{ game.game_time.strftime('%d-%m-%Y') }}</td>
+        <td>{{ game.game_time.strftime('%H:%M') }}</td>
         <td>
           <a
             class="btn btn-success"

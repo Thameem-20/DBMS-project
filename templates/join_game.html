@@ -2,9 +2,15 @@
 {% extends 'layout.html' %} {% block title %} Join Game {% endblock title %} {%
 block body %}
 <h1 class="turfhead">Join Game on {{ turf.turf_name }}</h1>
-<p class="turfhead" style="font-weight: bold">
-  Host Phone: {{ game.host_phone }}
-</p>
+<div class="turfhead">
+  <p style="font-weight: bold">
+    Host Name: {{game.host_name}}
+    <br />
+    Host Phone: {{ game.host_phone }}
+    <br />
+    Sport: {{game.sports}}
+  </p>
+</div>
 
 <!-- Display Players List -->
 <div class="turftab">
