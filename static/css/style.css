@@ -1,13 +1,22 @@
 body {
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+.open {
+  height: 600px;
   background-image: url("../img/5685407.jpg");
   background-repeat: no-repeat;
   /* background-position: center; */
   background-size: cover;
+  background-size: 100% 100%;
 }
+
 h1 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: rgb(21, 2, 2);
+  color: white;
   text-align: center;
 }
 .loginbtn {
@@ -28,6 +37,6 @@ h1 {
 }
 .cont1 {
   width: 100px;
-  margin: auto;
-  margin-top: 200px;
+  margin-left: 903px;
+  margin-top: 378px;
 }

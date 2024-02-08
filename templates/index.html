@@ -1,39 +1,51 @@
-{% extends 'layout.html' %}
-{% block title %} Home {% endblock title %}
-{% block body %}
+{% extends 'layout.html' %} {% block title %} Home {% endblock title %} {% block
+body %}
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-      </div>
+<nav
+  style="background-color: #ad00e8 !important"
+  class="navbar navbar-expand-lg bg-body-tertiary"
+>
+  <div class="container-fluid">
+    <a
+      style="color: white !important; font-weight: bold"
+      class="navbar-brand"
+      href="#"
+      >Play-Qonnect</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  <div class="landing">
-        <h1>Welcome to PlayQonnect</h1>
-        <div class="cont1">
-        <a class="loginbtn"  href="{{url_for('register')}}">Signup</a>
-        <br> 
-        <br>
-        <a class="loginbtn" class="btn2" href="{{url_for('login')}}">Login</a>
-        </div>
-    </div>
-        
-    {% endblock body %}
+  </div>
+</nav>
+<div class="open">
+  <h1>Welcome to PlayQonnect</h1>
+  <div class="cont1">
+    <a class="loginbtn" href="{{url_for('register')}}">Signup</a>
+    <br />
+    <br />
+    <a class="loginbtn" class="btn2" href="{{url_for('login')}}">Login</a>
+  </div>
+</div>
+
+{% endblock body %}
