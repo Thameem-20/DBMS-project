@@ -54,8 +54,12 @@ body {
 .turfhead {
   text-align: center;
 }
-.parent{
+.parent {
+  width: 30%;
+  margin: auto auto;
   display: flex;
   justify-content: center;
   border: 2px solid black;
+  flex-direction: column;
+  padding: 25px;
 }

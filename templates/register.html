@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block title %} Sign Up {% endblock title %}
 {% block body %}
-        <h1>Sign-Up page</h1>
+        <h1 class="turfhead" >Sign-Up page</h1>
         <form method="POST" action="">
             <div class="parent">
                 <div class="c1">
@@ -17,5 +17,5 @@
         </div> 
     </div>
         </form>
-        <a href="{{url_for('login')}}">Already have an Account? Login</a>
+        <a style="margin-left: 650px;" href="{{url_for('login')}}">Already have an Account? Login</a>
     {% endblock body %}
