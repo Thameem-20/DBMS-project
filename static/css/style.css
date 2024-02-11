@@ -24,17 +24,16 @@ body {
   padding-top: 100px;
 }
 .loginbtn {
-  border: 3px solid rgb(21, 2, 2);
+  border: 3px solid rgb(255, 255, 255);
   border-radius: 20px;
   padding: 5px 20px;
   font-size: 20px;
   text-decoration: none;
-  background-color: white;
-  color: black;
+  color: rgb(255, 255, 255);
   margin: 0 10px;
 }
 .loginbtn:hover {
-  background-color: rgb(201, 126, 126);
+  background-color: rgb(111, 0, 255);
   color: white;
 }
 .submit {
@@ -66,6 +65,7 @@ body {
 }
 .c1 {
   color: white;
+  margin-left: 40px;
 }
 .mainb {
   margin-top: 10%;

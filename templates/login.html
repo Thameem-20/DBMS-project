@@ -1,16 +1,31 @@
-{% extends 'layout.html' %}
-{% block title %} Login {% endblock title %}
-{% block head %}
-    {{ super() }}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-{% endblock head %}
-{% block body %}
-    <h1>Login Page</h1>
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        {{ form.username_email.label }} {{ form.username_email }} <br>
-        {{ form.password.label }} {{ form.password }} <br>
-        {{ form.submit }}
-    </form>
-    <a href="{{ url_for('register') }}">Don't have an Account? Sign-up</a>
+{% extends 'layout.html' %} {% block title %} Login {% endblock title %} {%
+block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/style.css') }}"
+/>
+{% endblock head %} {% block body %}
+<div class="mainb">
+  <h1 class="turfhead">Login Page</h1>
+  <form method="POST" action="">
+    <div class="parent">
+      {{ form.hidden_tag() }}
+      <div class="c1">Username or Email: &nbsp;{{ form.username_email }}</div>
+      <br />
+      <div class="c1">
+        {{ form.password.label }} :
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;{{ form.password }}
+      </div>
+      <br />
+      <div class="c1"></div>
+      {{ form.submit }}
+    </div>
+  </form>
+  <br />
+  <a style="margin-left: 650px" href="{{ url_for('register') }}"
+    >Don't have an Account? Sign-up</a
+  >
+</div>
 {% endblock body %}
