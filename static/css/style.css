@@ -55,6 +55,7 @@ body {
   text-align: center;
 }
 .parent {
+  background-image: linear-gradient(rgb(85, 0, 134), rgb(35, 0, 81));
   width: 30%;
   margin: auto auto;
   display: flex;
@@ -62,4 +63,10 @@ body {
   border: 2px solid black;
   flex-direction: column;
   padding: 25px;
+}
+.c1 {
+  color: white;
+}
+.mainb {
+  margin-top: 10%;
 }

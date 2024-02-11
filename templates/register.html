@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block title %} Sign Up {% endblock title %}
 {% block body %}
+        <div class="mainb">
         <h1 class="turfhead" >Sign-Up page</h1>
         <form method="POST" action="">
             <div class="parent">
@@ -8,14 +9,18 @@
             {{form.hidden_tag() }}
             Username: {{form.username}} 
         </div><br>
-        <div class="c1">
-            Email: {{form.email}} <br>
-            Password: {{form.password}} 
+        <div class="c1" class="c2" >
+            Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{form.email}} <br>
+            <br>
+            Password:&nbsp; {{form.password}} 
         </div><br>
-        <div class="c1"></div>
+        
+        <div class="c2" class="c2"></div>
             {{form.submit}}
         </div> 
     </div>
         </form>
-        <a style="margin-left: 650px;" href="{{url_for('login')}}">Already have an Account? Login</a>
+        <a style="margin-left: 650px;; " href="{{url_for('login')}}">Already have an Account? Login</a>
+    </div>
     {% endblock body %}
+    
