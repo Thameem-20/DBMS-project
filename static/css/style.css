@@ -54,3 +54,8 @@ body {
 .turfhead {
   text-align: center;
 }
+.parent{
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
+}
