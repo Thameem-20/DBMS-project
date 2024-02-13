@@ -22,9 +22,11 @@ block body %}
         <td>{{ turf.turf_location }}</td>
         <td>{{ turf.turf_phone }}</td>
         <td>
-          <a class="btn btn-success" href="{{ url_for('turf_detail', turf_id=turf.id) }}"></button>
-            Select
+          <a class="btn btn-success" href="{{ url_for('turf_detail', turf_id=turf.id) }}"> Select
         </a>
+        </td>
+        <td>
+          <a class="btn btn-success" href="{{ url_for('turf_reviews', turf_id=turf.id) }}">Turf Reviews</a>
         </td>
       </tr>
       {% endfor %}
