@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}Turf Reviews for {{ turf.turf_name }}{% endblock title %}
+{% block body %}
+    <h1>Turf Reviews for {{ turf.turf_name }}</h1>
+    <ul>
+        {% for review in reviews %}
+            <li>
+                Rating: {{ review.rating }}<br>
+                Review: {{ review.review_text }}<br>
+                Author: {{ review.author.username }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('write_review', turf_id=turf.id) }}">Write a Review</a>
+{% endblock body %}

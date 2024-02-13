@@ -4,6 +4,8 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import InputRequired, Email, Length, ValidationError
+from wtforms import TextAreaField, SubmitField
+from wtforms.validators import DataRequired
 from flask_bcrypt import Bcrypt
 from datetime import datetime
 from flask_migrate import Migrate
@@ -92,6 +94,9 @@ class LoginForm(FlaskForm):
     password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
     submit = SubmitField("Login")
 
+class ReviewForm(FlaskForm):
+    review = TextAreaField('Review', validators=[DataRequired()])
+    submit = SubmitField('Submit Review')
 
 @app.route('/')
 def home():
@@ -208,6 +213,23 @@ def turf_reviews(turf_id):
     turf = Turf.query.get_or_404(turf_id)
     reviews = turf.reviews
     return render_template('turf_reviews.html', turf=turf, reviews=reviews)
+
+@app.route('/turf/<int:turf_id>/write_review', methods=['GET', 'POST'])
+@login_required
+def write_review(turf_id):
+    form = ReviewForm()
+    turf = Turf.query.get_or_404(turf_id)
+    
+    if form.validate_on_submit():
+        # Create a new review and add it to the database
+        new_review = TurfReview(turf_id=turf.id, user_id=current_user.id,
+                                rating=form.rating.data, review_text=form.review_text.data)
+        db.session.add(new_review)
+        db.session.commit()
+        flash('Your review has been submitted!', 'success')
+        return redirect(url_for('turf_reviews', turf_id=turf.id))
+    
+    return render_template('write_review.html', form=form, turf=turf)
 
 
 @app.route('/clear_hosted_games', methods=['GET'])
