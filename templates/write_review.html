@@ -1,0 +1,27 @@
+<!-- write_review.html -->
+{% extends 'layout.html' %}
+{% block title %}Write a Review{% endblock %}
+{% block content %}
+  <h1>Write a Review for {{ turf.turf_name }}</h1>
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.rating.label }}
+      {{ form.rating(class="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.review.label }}
+      {{ form.review(class="form-control") }}
+      {% if form.review.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.review.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-primary") }}
+    </div>
+  </form>
+{% endblock %}

@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, redirect, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField
+from wtforms import StringField,PasswordField,SubmitField,SelectField
 from wtforms.validators import InputRequired, Email, Length, ValidationError
 from wtforms import TextAreaField, SubmitField
 from wtforms.validators import DataRequired
@@ -95,6 +95,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Login")
 
 class ReviewForm(FlaskForm):
+    rating = SelectField('Rating', choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')], validators=[DataRequired()])
     review = TextAreaField('Review', validators=[DataRequired()])
     submit = SubmitField('Submit Review')
 
