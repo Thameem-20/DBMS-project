@@ -60,6 +60,12 @@ class Player(db.Model):
     player_address = db.Column(db.String(255), nullable=False)
     player_phone = db.Column(db.String(15), nullable=True)
 
+class TurfReview(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    turf_id = db.Column(db.Integer, db.ForeignKey('turf.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    rating = db.Column(db.Integer, nullable=False)
+    review_text = db.Column(db.Text, nullable=False)
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
