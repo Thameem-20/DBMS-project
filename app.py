@@ -41,6 +41,7 @@ class Turf(db.Model):
 
     # Relationship with Game
     games = db.relationship('Game', backref='turf', lazy=True)
+    reviews = db.relationship('TurfReview', backref='turf', lazy=True)
 
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -201,6 +202,13 @@ def players_list(game_id):
     game = Game.query.get_or_404(game_id)
     players = game.players
     return render_template('players_list.html', players=players)
+
+@app.route('/turf/<int:turf_id>/reviews')
+def turf_reviews(turf_id):
+    turf = Turf.query.get_or_404(turf_id)
+    reviews = turf.reviews
+    return render_template('turf_reviews.html', turf=turf, reviews=reviews)
+
 
 @app.route('/clear_hosted_games', methods=['GET'])
 def clear_hosted_games():
