@@ -5,11 +5,14 @@
     <ul>
         {% for review in reviews %}
             <li>
-                <li>
-                    Rating: {{ review.rating }}<br>
-                    Review: {{ review.review_text }}<br>
-                    Author: {{ review.author.username }}<br> 
-                </li>
+                {% for review in reviews %}
+    <li>
+        Rating: {{ review.rating }}<br>
+        Review: {{ review.review_text }}<br>
+        Author: {{ review.user.username }}<br> 
+    </li>
+{% endfor %}
+
             </li>
         {% endfor %}
     </ul>
