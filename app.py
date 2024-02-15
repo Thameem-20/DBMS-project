@@ -9,6 +9,8 @@ from wtforms.validators import DataRequired
 from flask_bcrypt import Bcrypt
 from datetime import datetime
 from flask_migrate import Migrate
+from sqlalchemy.orm import joinedload
+
 
 
 app = Flask(__name__)
@@ -69,6 +71,10 @@ class TurfReview(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     review_text = db.Column(db.Text, nullable=False)
+    
+    # Define relationship with User model
+    user = db.relationship('User', backref='reviews')
+
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
@@ -154,14 +160,12 @@ def host_game(turf_id):
     turf = Turf.query.get_or_404(turf_id)
 
     if request.method == 'POST':
-        # Get form data
         host_name = current_user.username
         host_phone = request.form.get('host_phone')
         game_date = request.form.get('game_date')
         game_time = request.form.get('game_time')
         sports = request.form.get('sports')
 
-        # Convert game_date and game_time to a datetime object
         game_datetime_str = f'{game_date} {game_time}'
         game_time = datetime.strptime(game_datetime_str, '%Y-%m-%d %H:%M')
 
@@ -183,7 +187,6 @@ def join_game(turf_id, game_id):
     game = Game.query.get_or_404(game_id)
 
     if request.method == 'POST':
-        # Get form data
         player_name = current_user.username
         player_address = request.form.get('player_address')
         player_phone = request.form.get('player_phone')
@@ -212,8 +215,9 @@ def players_list(game_id):
 @app.route('/turf/<int:turf_id>/reviews')
 def turf_reviews(turf_id):
     turf = Turf.query.get_or_404(turf_id)
-    reviews = turf.reviews
+    reviews = TurfReview.query.filter_by(turf_id=turf_id).options(joinedload(TurfReview.user)).all()
     return render_template('turf_reviews.html', turf=turf, reviews=reviews)
+
 
 @app.route('/turf/<int:turf_id>/write_review', methods=['GET', 'POST'])
 @login_required
@@ -222,15 +226,15 @@ def write_review(turf_id):
     turf = Turf.query.get_or_404(turf_id)
     
     if form.validate_on_submit():
-        # Create a new review and add it to the database
         new_review = TurfReview(turf_id=turf.id, user_id=current_user.id,
-                                rating=form.rating.data, review_text=form.review_text.data)
+                                rating=form.rating.data, review_text=form.review.data)
         db.session.add(new_review)
         db.session.commit()
         flash('Your review has been submitted!', 'success')
         return redirect(url_for('turf_reviews', turf_id=turf.id))
     
     return render_template('write_review.html', form=form, turf=turf)
+
 
 
 @app.route('/clear_hosted_games', methods=['GET'])
