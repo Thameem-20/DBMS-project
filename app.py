@@ -236,15 +236,6 @@ def write_review(turf_id):
     return render_template('write_review.html', form=form, turf=turf)
 
 
-@app.route('/truncate_turf_reviews', methods=['GET'])
-def truncate_turf_reviews():
-    from models import TurfReview  # Import your TurfReview model
-    db.session.query(TurfReview).delete()
-    db.session.commit()
-    flash('TurfReview table truncated successfully!', 'success')
-    return redirect(url_for('home'))
-
-
 
 @app.route('/clear_hosted_games', methods=['GET'])
 def clear_hosted_games():
