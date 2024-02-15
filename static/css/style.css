@@ -70,3 +70,10 @@ body {
 .mainb {
   margin-top: 10%;
 }
+.reviewsec {
+  border: 2px solid black;
+}
+.secbody {
+  width: 95%;
+  margin: 0 auto;
+}

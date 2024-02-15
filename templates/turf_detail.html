@@ -1,11 +1,10 @@
-<!-- turf_detail.html -->
+
 {% extends 'layout.html' %} {% block title %} Turf Details {% endblock title %}
 {% block body %}
 <h1 class="turfhead">{{ turf.turf_name }} Details</h1>
 <p class="turfhead">Location: {{ turf.turf_location }}</p>
 <p class="turfhead">Phone: {{ turf.turf_phone }}</p>
 
-<!-- Display Hosted Games in a Table -->
 <div class="turftab">
   {% if hosted_games|length==0 %}
   <div class="alert alert-dark" role="alert">
