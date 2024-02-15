@@ -8,7 +8,7 @@ body {
   margin-left: auto;
 }
 .open {
-  height: 650px;
+  height: 700px;
   background-image: url("../img/5685407.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,6 +74,22 @@ body {
   border: 2px solid black;
 }
 .secbody {
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
+}
+.smallsec {
+  padding: 15px 20px;
+  background-color: rgba(0, 0, 0, 0.207);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.286);
+}
+.revname {
+  font-weight: bold;
+  font-size: 20px;
+}
+.revdesc {
+  background-color: rgba(255, 255, 255, 0.693);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
 }

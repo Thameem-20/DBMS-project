@@ -1,9 +1,8 @@
-
 {% extends 'layout.html' %} {% block title %} Turf Details {% endblock title %}
 {% block body %}
 <h1 class="turfhead">{{ turf.turf_name }} Details</h1>
-<p class="turfhead">Location: {{ turf.turf_location }}</p>
-<p class="turfhead">Phone: {{ turf.turf_phone }}</p>
+<h5 class="turfhead">Location: {{ turf.turf_location }}</h5>
+<h5 class="turfhead">Phone: {{ turf.turf_phone }}</h5>
 
 <div class="turftab">
   {% if hosted_games|length==0 %}
