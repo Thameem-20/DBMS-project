@@ -250,21 +250,3 @@ if __name__ == '__main__':
             db.create_all()
         app.run(debug=True)
 
-app.app_context().push()
-
-# Now you can add turfs to the database
-turf1 = Turf(turf_name='Soccerholic', turf_location='Bangalore', turf_phone='1234567890')  
-turf2 = Turf(turf_name='Sky Arena', turf_location='Ashok Nagar', turf_phone='1234567890')   
-turf3 = Turf(turf_name='Tackle', turf_location='Jayanagar', turf_phone='1234567890')      
-turf4 = Turf(turf_name='Footlock', turf_location='RT Nagar', turf_phone='1234567890') 
-turf5 = Turf(turf_name='Golden leg', turf_location='koramangala', turf_phone='1234567890') 
-
-# Add the turfs to the database session
-db.session.add(turf1)
-db.session.add(turf2)
-db.session.add(turf3)
-db.session.add(turf4)
-db.session.add(turf5)
-
-# Commit the changes to the database
-db.session.commit()
