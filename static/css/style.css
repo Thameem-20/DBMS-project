@@ -1,3 +1,9 @@
+body {
+  background-image: url(../img/17580.jpg);
+  background-size: 100% 180%;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
 .navbar-nav {
   margin-left: auto;
 }
@@ -81,13 +87,26 @@
 .parent {
   background-image: linear-gradient(rgb(85, 0, 134), rgb(35, 0, 81));
   border-radius: 10px;
-  width: 30%;
+  width: 35%;
   margin: auto auto;
   display: flex;
   justify-content: center;
   border: 2px solid black;
   flex-direction: column;
   padding: 25px;
+  box-shadow: 2px 3px 10px #220039;
+}
+.formimg {
+  width: 8%;
+  height: 8%;
+  margin-left: 58%;
+  margin-top: -36%;
+}
+.loginimg {
+  width: 8%;
+  height: 8%;
+  margin-left: 27%;
+  margin-top: -15%;
 }
 .c1 {
   color: white;
@@ -122,9 +141,16 @@
 
 .about {
   font-family: "Poppins", sans-serif;
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
   text-align: center;
+}
+.aboutpara {
+  font-weight: 500;
+}
+.aboutspan {
+  color: #6800ab;
+  font-weight: 600;
 }
 .aboutimg {
   height: 30%;
