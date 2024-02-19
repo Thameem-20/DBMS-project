@@ -167,6 +167,13 @@ body {
   padding: 40px 20px;
   color: white;
 }
+.nav-link {
+  font-weight: bold !important;
+  color: black !important;
+}
+.nav-link:hover {
+  color: #6800ab !important;
+}
 .feabox {
   background-color: white;
   color: #1f0034;
@@ -175,6 +182,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   font-family: "Poppins", sans-serif;
+  transition: 0.5s;
 }
 .feahead {
   color: #6800ab;

@@ -4,21 +4,8 @@ block body %}
 <h1 class="turfhead">Login success!</h1>
 <h4 class="turfhead">Welcome, {{ username }}!</h4>
 
-<!-- Search Bar -->
+
 <div class="turftab">
-  <!-- <h2 class="turfhead">Search Turfs</h2>
-  <form action="{{ url_for('search_turfs') }}" method="GET">
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        name="location"
-        placeholder="Enter location"
-      />
-      <button type="submit" class="btn btn-primary">Search</button>
-    </div>
-  </form>
-</div> -->
   <form action="{{ url_for('search_turfs') }}" method="GET">
     <div class="turftab" class="input-group">
       <div class="form-outline" data-mdb-input-init>
