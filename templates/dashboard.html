@@ -1,13 +1,12 @@
 <!-- dashboard.html -->
-{% extends 'layout.html' %}
-{% block title %} Dashboard {% endblock title %}
-{% block body %}
+{% extends 'layout.html' %} {% block title %} Dashboard {% endblock title %} {%
+block body %}
 <h1 class="turfhead">Login success!</h1>
 <h4 class="turfhead">Welcome, {{ username }}!</h4>
 
 <!-- Search Bar -->
 <div class="turftab">
-  <h2 class="turfhead">Search Turfs</h2>
+  <!-- <h2 class="turfhead">Search Turfs</h2>
   <form action="{{ url_for('search_turfs') }}" method="GET">
     <div class="form-group">
       <input
@@ -19,45 +18,63 @@
       <button type="submit" class="btn btn-primary">Search</button>
     </div>
   </form>
-</div>
+</div> -->
+  <form action="{{ url_for('search_turfs') }}" method="GET">
+    <div class="turftab" class="input-group">
+      <div class="form-outline" data-mdb-input-init>
+        <input
+          type="search"
+          id="form1"
+          class="form-control"
+          name="location"
+          placeholder="Enter location"
+        />
+        <!-- <label class="form-label" for="form1">Search Turfs</label> -->
+      </div>
+      <button type="submit" class="btn btn-primary" data-mdb-ripple-init>
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </form>
 
-<div class="turftab">
-  <h2 class="turfhead">Turfs</h2>
-  <table border="1" class="table table-striped">
-    <thead>
-      <tr>
-        <th>Turf Name</th>
-        <th>Turf Location</th>
-        <th>Turf Phone</th>
-        <th>Action</th>
-        <th>Turf Reviews</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for turf in turfs %}
-      <tr>
-        <td>{{ turf.turf_name }}</td>
-        <td>{{ turf.turf_location }}</td>
-        <td>{{ turf.turf_phone }}</td>
-        <td>
-          <a
-            class="btn btn-success"
-            href="{{ url_for('turf_detail', turf_id=turf.id) }}"
-          >
-            Select
-          </a>
-        </td>
-        <td>
-          <a
-            class="btn btn-primary"
-            href="{{ url_for('turf_reviews', turf_id=turf.id) }}"
-            >View Reviews</a
-          >
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+  <div class="turftab">
+    <h2 class="turfhead">Turfs</h2>
+    <table border="1" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Turf Name</th>
+          <th>Turf Location</th>
+          <th>Turf Phone</th>
+          <th>Action</th>
+          <th>Turf Reviews</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for turf in turfs %}
+        <tr>
+          <td>{{ turf.turf_name }}</td>
+          <td>{{ turf.turf_location }}</td>
+          <td>{{ turf.turf_phone }}</td>
+          <td>
+            <a
+              class="btn btn-success"
+              href="{{ url_for('turf_detail', turf_id=turf.id) }}"
+            >
+              Select
+            </a>
+          </td>
+          <td>
+            <a
+              class="btn btn-primary"
+              href="{{ url_for('turf_reviews', turf_id=turf.id) }}"
+              >View Reviews</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 
-{% endblock body %}
+  {% endblock body %}
+</div>
