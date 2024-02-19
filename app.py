@@ -235,7 +235,11 @@ def write_review(turf_id):
     
     return render_template('write_review.html', form=form, turf=turf)
 
-
+@app.route('/search', methods=['GET'])
+def search_turfs():
+    location = request.args.get('location')
+    turfs = Turf.query.filter_by(turf_location=location).all()
+    return render_template('dashboard.html', username=current_user.username, turfs=turfs)
 
 @app.route('/clear_hosted_games', methods=['GET'])
 def clear_hosted_games():

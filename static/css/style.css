@@ -3,6 +3,7 @@ body {
   background-size: 100% 180%;
   background-repeat: no-repeat;
   object-fit: cover;
+  scroll-behavior: smooth;
 }
 .navbar-nav {
   margin-left: auto;
@@ -144,6 +145,8 @@ body {
   width: 85%;
   margin: 0 auto;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.634);
+  border-radius: 50%;
 }
 .aboutpara {
   font-weight: 500;
@@ -155,6 +158,7 @@ body {
 .aboutimg {
   height: 30%;
   width: 30%;
+  border-radius: 130px;
 }
 .features {
   text-align: center;
@@ -175,6 +179,7 @@ body {
 .feahead {
   color: #6800ab;
   font-family: "Poppins", sans-serif;
+  font-weight: 550;
 }
 .feahead:hover {
   color: white;
