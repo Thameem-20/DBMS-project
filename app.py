@@ -237,7 +237,7 @@ def write_review(turf_id):
 
 @app.route('/search', methods=['GET'])
 def search_turfs():
-    location = request.args.get('location')
+    location = request.args.get('location').lower()
     turfs = Turf.query.filter_by(turf_location=location).all()
     return render_template('dashboard.html', username=current_user.username, turfs=turfs)
 
