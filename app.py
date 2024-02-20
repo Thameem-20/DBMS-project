@@ -241,6 +241,26 @@ def search_turfs():
     turfs = Turf.query.filter_by(turf_location=location).all()
     return render_template('dashboard.html', username=current_user.username, turfs=turfs)
 
+@app.route('/turf/<int:turf_id>/join_game/<int:game_id>/leave', methods=['POST'])
+@login_required
+def leave_game(turf_id, game_id):
+    # Retrieve player_id from form data
+    player_id = request.form.get('player_id')
+
+    # Query the Player object to delete
+    player_to_delete = Player.query.get(player_id)
+
+    if player_to_delete:
+        # Remove the player from the session and commit the change
+        db.session.delete(player_to_delete)
+        db.session.commit()
+        flash('You have left the game successfully!', 'success')
+    else:
+        flash('Player not found or you are not registered for this game.', 'danger')
+
+    # Redirect back to the join_game page
+    return redirect(url_for('join_game', turf_id=turf_id, game_id=game_id))
+
 @app.route('/clear_hosted_games', methods=['GET'])
 def clear_hosted_games():
     Game.query.delete()
