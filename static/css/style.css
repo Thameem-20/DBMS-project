@@ -256,9 +256,53 @@ a:hover {
 }
 
 /* ------------------------------------------------------dashboard css--------------------------------------------------------------------------- */
+.dashbrd {
+  display: flex;
+  justify-content: center;
+}
 .turfcard {
-  border: 2px solid blueviolet;
-  width: vw;
+  background: #00000052;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  width: 40%;
   margin: 0 auto;
-  padding: 3%;
+  padding: 2.5%;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 2px 3px 10px #000000;
+}
+.turfname {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  background-color: blueviolet;
+  padding: 5px 15px;
+  border-radius: 25px;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+.turfloc {
+  font-weight: 500;
+  text-align: center;
+}
+.turfph {
+  font-weight: 500;
+  text-align: center;
+}
+.revbtn {
+  margin-left: 50%;
+  background-color: #1f0034;
+  text-decoration: none;
+  font-weight: 400;
+  color: white;
+  border-radius: 5px;
+  padding: 8px;
+}
+.selbtn {
+  background-color: #019863;
+  text-decoration: none;
+  font-weight: 400;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-left: 20%;
 }
