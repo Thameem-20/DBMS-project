@@ -1,4 +1,4 @@
-<!-- dashboard.html -->
+<!-- dashboard.html
 {% extends 'layout.html' %} {% block title %} Dashboard {% endblock title %} {%
 block body %}
 <h1 class="turfhead">Login success!</h1>
@@ -16,43 +16,52 @@ block body %}
           name="location"
           placeholder="Enter location"
         />
-        <!-- <label class="form-label" for="form1">Search Turfs</label> -->
-      </div>
+       <label class="form-label" for="form1">Search Turfs</label> -->
+      <!-- </div>
       <button type="submit" class="btn btn-primary" data-mdb-ripple-init>
         <i class="fas fa-search"></i>
       </button>
     </div>
   </form>
 
+  <div class="turftab">
     <h2 class="turfhead">Turfs</h2>
-      
-      
+    <table border="1" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Turf Name</th>
+          <th>Turf Location</th>
+          <th>Turf Phone</th>
+          <th>Action</th>
+          <th>Turf Reviews</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for turf in turfs %}
-        <div class="turfcard">
-          <div class="turf name">Turf: {{ turf.turf_name }}</div>
-          <div>Location: {{ turf.turf_location }}</div>
-          <div>Phone: {{ turf.turf_phone }}</div>
-          <div>
+        <tr>
+          <td>{{ turf.turf_name }}</td>
+          <td>{{ turf.turf_location }}</td>
+          <td>{{ turf.turf_phone }}</td>
+          <td>
             <a
               class="btn btn-success"
               href="{{ url_for('turf_detail', turf_id=turf.id) }}"
             >
               Select
-            </a></div>
-          
-          
-            <div><a
+            </a>
+          </td>
+          <td>
+            <a
               class="btn btn-primary"
               href="{{ url_for('turf_reviews', turf_id=turf.id) }}"
               >View Reviews</a
-            ></div>
-            
-          
-          </div>
-          <br>
+            >
+          </td>
+        </tr>
         {% endfor %}
-      
-</div>
+      </tbody>
+    </table>
+  </div>
 
-  {% endblock body %}
-</div>
+  {% endblock body %} 
+</div> -->

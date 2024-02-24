@@ -254,3 +254,11 @@ body {
 a:hover {
   color: black;
 }
+
+/* ------------------------------------------------------dashboard css--------------------------------------------------------------------------- */
+.turfcard {
+  border: 2px solid blueviolet;
+  width: vw;
+  margin: 0 auto;
+  padding: 3%;
+}
