@@ -355,8 +355,8 @@ a:hover {
   position: absolute;
   content: " ";
   display: block;
-  width: 160px;
-  height: 160%;
+  width: 438px;
+  height: 558px;
   background: linear-gradient(
     90deg,
     transparent,
@@ -546,6 +546,7 @@ a:hover {
   transition: all ease-in-out 0.5s;
   margin-right: -2rem;
   border: 2px solid black;
+  margin-right: 0rem;
 }
 
 .search__input:hover,
@@ -580,5 +581,20 @@ a:hover {
 .search__icon {
   height: 1.3em;
   width: 1.3em;
-  fill: #b4b4b4;
+  fill: #747474;
+  margin-left: -60px;
+  margin-bottom: 4px;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------ */
+.hostcont {
+  border: 2px solid black;
+  width: 40%;
+  margin: 0 auto;
+  padding: 25px 15px;
+  margin-top: 7%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.221);
 }

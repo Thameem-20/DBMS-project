@@ -1,21 +1,52 @@
 <!-- host_game.html -->
-{% extends 'layout.html' %}
-{% block title %} Host a Game {% endblock title %}
+{% extends 'layout.html' %} {% block title %} Host a Game {% endblock title %}
 {% block body %}
-    <h1>Host a Game on {{ turf.turf_name }}</h1>
-    <form method="POST" action="">
-        <label for="host_phone">Host Phone:</label>
-        <input type="text" id="host_phone" name="host_phone" required>
-        
-        <label for="game_date">Game Date:</label>
-        <input type="date" id="game_date" name="game_date" required>
+<h1 class="turfhead">Host a Game on {{ turf.turf_name }}</h1>
+<div class="hostcont">
+  <form method="POST" action="">
+    Phone:
+    <input
+      class="form-group"
+      type="text"
+      id="host_phone"
+      name="host_phone"
+      required
+    />
+    <br />
+    <br />
 
-        <label for="game_time">Game Time:</label>
-        <input type="time" id="game_time" name="game_time" required>
+    Game Date:&nbsp;&nbsp;&nbsp;
+    <input
+      class="form-group"
+      type="date"
+      id="game_date"
+      name="game_date"
+      required
+    />
+    <br />
+    <br />
 
-        <label for="sports">Sport:</label>
-        <input type="text" id="sports" name="sports" required>
+    Game Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input
+      class="form-group"
+      type="time"
+      id="game_time"
+      name="game_time"
+      required
+    />
+    <br />
+    <br />
 
-        <input type="submit" value="Host Game">
-    </form>
+    Sport:&nbsp;&nbsp;&nbsp;<input
+      class="form-group"
+      type="text"
+      id="sports"
+      name="sports"
+      required
+    /><br />
+    <br />
+
+    <input class="btn btn-primary" type="submit" value="Host Game" />
+  </form>
+</div>
 {% endblock body %}
