@@ -16,7 +16,6 @@ block body %}
           name="location"
           placeholder="Enter location"
         />
-        <!-- <label class="form-label" for="form1">Search Turfs</label> -->
       </div>
       <button type="submit" class="btn btn-primary" data-mdb-ripple-init>
         <i class="fas fa-search"></i>
@@ -28,7 +27,57 @@ block body %}
       
       <div class="dashbrd row">
         {% for turf in turfs %}
-        <div class="turfcard col-md-5 mx-3 my-3">
+        <div class="card col-md-5 mx-3 my-3">
+          <div class="content">
+            <div class="back">
+              <div class="back-content">
+                <svg stroke="#ffffff" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height="50px" width="50px" fill="#ffffff">
+        
+                <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+        
+                <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+        
+                <g id="SVGRepo_iconCarrier">
+        
+                <img class="cardimg" src="../static/img/8oz_ThlERfq7Dz3ClMQf1w-removebg-preview.png" alt="">
+        
+                </g>
+        
+                </svg>
+                <strong>{{ turf.turf_name }}</strong>
+              </div>
+            </div>
+            <div class="front">
+              
+              <div class="img">
+                <div class="circle">
+                </div>
+                <div class="circle" id="right">
+                </div>
+                <div class="circle" id="bottom">
+                </div>
+              </div>
+        
+              <div class="front-content">
+                <small class="badge">{{ turf.turf_name }}</small>
+                <div class="description">
+                  <div class="title">
+                    <p class="title">
+                      <div>Location: {{ turf.turf_location }}</div>
+                      <div>Phone: {{ turf.turf_phone }}</div>
+                    </p>
+                    
+                  </div class="card-footer">
+                  <a class="selbtn" href="{{ url_for('turf_detail', turf_id=turf.id) }}" >
+                    Select </a>
+                  <a class="revbtn" href="{{ url_for('turf_reviews', turf_id=turf.id) }}" >
+                    Reviews</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="turfcard col-md-5 mx-3 my-3">
           <div class="turfname">Name: {{ turf.turf_name }}</div>
           <div class="turfloc">Location: {{ turf.turf_location }}</div>
           <div class="turfph">Phone: {{ turf.turf_phone }}</div>
@@ -49,7 +98,7 @@ block body %}
             ></div>
             
           
-          </div>
+          </div> -->
           <br>
         {% endfor %}
       </div>
