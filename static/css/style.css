@@ -134,6 +134,7 @@ body {
   height: 8%;
   margin-left: 58%;
   margin-top: -36%;
+  filter: drop-shadow(10px 10px 10px);
 }
 .loginimg {
   width: 8%;
@@ -235,12 +236,23 @@ body {
 
 .footer {
   text-align: center;
-  background-color: #6800ab;
+  background: linear-gradient(140deg, #6800ab, #2f004f);
   color: #ffffff;
-  height: 14rem;
-  padding-top: 1.5rem;
+  height: 40vh;
+  /* padding-top: 1.5rem; */
   font-size: 18px;
   font-family: "Poppins", sans-serif;
+}
+.footerp {
+  display: inline-block;
+  margin-top: -10px;
+}
+.footerhead {
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+  margin-left: 1%;
+  width: fit-content;
+  padding-top: 1%;
 }
 .footerlist {
   text-decoration: none;
