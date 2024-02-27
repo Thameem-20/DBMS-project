@@ -141,6 +141,7 @@ body {
   height: 8%;
   margin-left: 27%;
   margin-top: -15%;
+  filter: drop-shadow(10px 10px 10px);
 }
 .c1 {
   color: white;

@@ -11,7 +11,6 @@ block body %}
   </p>
 </div>
 
-<!-- Display Players List -->
 <div class="turftab">
   <h2>Players List</h2>
   <table border="1" class="table table-striped">
@@ -31,7 +30,6 @@ block body %}
         <td>{{ player.player_phone }}</td>
         <td>
           {% if player.player_name == current_user.username %}
-          <!-- Display the Leave Game button only for the current user's row -->
           <form
             method="POST"
             action="{{ url_for('leave_game', turf_id=turf.id, game_id=game.id) }}"

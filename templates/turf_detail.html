@@ -21,6 +21,7 @@
         <th>Date</th>
         <th>Time</th>
         <th>Action</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +39,17 @@
             >Join Game</a
           >
         </td>
+        <td>
+          {% if player.player_name == current_user.username %}
+          <form
+            method="POST"
+            action="{{ url_for('leave_game', turf_id=turf.id) }}"
+          >
+            <input type="hidden" name="game_id" value="{{ game.id }}" />
+            <button class="btn btn-danger" type="submit">Delete Game</button>
+          </form>
+          {% endif %}
+        </td>
       </tr>
       {% endfor %}
     </tbody>
@@ -45,7 +57,7 @@
   </table>
   <div class="turftab"></div>
   <br />
-  <!-- Host a Game Option -->
+  <!-- Host Game Option -->
   {% if current_user.is_authenticated %}
   <a class="btn btn-danger" href="{{ url_for('host_game', turf_id=turf.id) }}"
     >Host a Game</a

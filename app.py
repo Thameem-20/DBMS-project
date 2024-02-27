@@ -10,6 +10,11 @@ from flask_bcrypt import Bcrypt
 from datetime import datetime
 from flask_migrate import Migrate
 from sqlalchemy.orm import joinedload
+from sqlalchemy import CheckConstraint
+from sqlalchemy import event
+from sqlalchemy.orm import validates
+
+
 
 
 
@@ -37,26 +42,41 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
 
+
 class Turf(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     turf_name = db.Column(db.String(255), nullable=False)
     turf_location = db.Column(db.String(255), nullable=False)
-    turf_phone = db.Column(db.String(15), nullable=True)
+    turf_phone = db.Column(db.Integer, nullable=True)
+
+    __table_args__ = (
+        CheckConstraint('LENGTH(CAST(turf_phone AS TEXT)) = 10', name='valid_phone_length'),
+    )
 
     # Relationship with Game
     games = db.relationship('Game', backref='turf', lazy=True)
     reviews = db.relationship('TurfReview', backref='turf', lazy=True)
 
+
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     turf_id = db.Column(db.Integer, db.ForeignKey('turf.id'), nullable=False)
     host_name = db.Column(db.String(255), nullable=False)
-    host_phone = db.Column(db.String(15), nullable=True)
+    host_phone = db.Column(db.Integer, nullable=True)
     game_time = db.Column(db.DateTime, nullable=False)
     sports = db.Column(db.String(50), nullable=False)
 
     # Relationship with Player
     players = db.relationship('Player', backref='game', lazy=True)
+
+    @validates('host_phone')
+    def validate_host_phone(self, key, phone):
+        if phone is not None:
+            if not isinstance(phone, int):
+                raise ValueError("Phone number must be an integer.")
+            if len(str(phone)) != 10:
+                raise ValueError("Phone number must be 10 digits long.")
+        return phone
 
 class Player(db.Model):
     id = db.Column(db.Integer, primary_key=True)
