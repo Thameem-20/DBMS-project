@@ -69,14 +69,6 @@ class Game(db.Model):
     # Relationship with Player
     players = db.relationship('Player', backref='game', lazy=True)
 
-    @validates('host_phone')
-    def validate_host_phone(self, key, phone):
-        if phone is not None:
-            if not isinstance(phone, int):
-                raise ValueError("Phone number must be an integer.")
-            if len(str(phone)) != 10:
-                raise ValueError("Phone number must be 10 digits long.")
-        return phone
 
 class Player(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -264,29 +256,33 @@ def search_turfs():
 @app.route('/turf/<int:turf_id>/join_game/<int:game_id>/leave', methods=['POST'])
 @login_required
 def leave_game(turf_id, game_id):
-    # Retrieve player_id from form data
     player_id = request.form.get('player_id')
-
-    # Query the Player object to delete
     player_to_delete = Player.query.get(player_id)
 
     if player_to_delete:
-        # Remove the player from the session and commit the change
         db.session.delete(player_to_delete)
         db.session.commit()
         flash('You have left the game successfully!', 'success')
     else:
         flash('Player not found or you are not registered for this game.', 'danger')
 
-    # Redirect back to the join_game page
     return redirect(url_for('join_game', turf_id=turf_id, game_id=game_id))
 
-@app.route('/clear_hosted_games', methods=['GET'])
-def clear_hosted_games():
-    Game.query.delete()
-    db.session.commit()
+from flask import redirect, url_for, flash
 
-    return 'Hosted games table cleared successfully!'
+@app.route('/delete_game/<int:game_id>', methods=['POST'])
+@login_required
+def delete_game(game_id):
+    game = Game.query.get_or_404(game_id)
+    # Check if the current user is the host of the game and the turf owner
+    if current_user.username == game.host_name and current_user.id == game.turf.user_id:
+        db.session.delete(game)
+        db.session.commit()
+        flash('Game deleted successfully!', 'success')
+    else:
+        flash('You are not authorized to delete this game.', 'danger')
+    return redirect(url_for('turf_detail', turf_id=game.turf_id))
+
 
 if __name__ == '__main__':
     if __name__ == '__main__':
