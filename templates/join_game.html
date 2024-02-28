@@ -1,7 +1,15 @@
 {% extends 'layout.html' %} {% block title %} Join Game {% endblock title %} {%
 block body %}
-<h1 class="turfhead">Join Game on {{ turf.turf_name }}</h1>
-<div class="turfhead">
+<a
+  class="btn btn-primary"
+  style="margin: 0.5%"
+  href="{{ url_for('turf_detail',turf_id=turf.id) }}"
+>
+  Back
+</a>
+<div class="turfhead" style="margin-top: -2.5%;">
+<h1 >Join Game on {{ turf.turf_name }}</h1>
+
   <p style="font-weight: bold">
     Host Name: {{game.host_name}}
     <br />
