@@ -1,7 +1,16 @@
 {% extends 'layout.html' %} {% block title %} Dashboard {% endblock title %} {%
 block body %}
-<h1  class="turfhead">Login success!</h1>
-<h4 class="turfhead">Welcome, {{ username }}!</h4>
+<a
+  class="btn btn-primary"
+  style="margin: 0.5%"
+  href="{{ url_for('home') }}"
+>
+  Logout
+</a>
+<div class="turfhead" style="margin: -2.5%;">
+<h1>Login success!</h1>
+<h4>Welcome, {{ username }}!</h4>
+</div>
 
 
 <div class="turftab">
