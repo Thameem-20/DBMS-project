@@ -7,9 +7,11 @@
 >
   Back
 </a>
-<h1 class="turfhead">{{ turf.turf_name }} Details</h1>
-<h5 class="turfhead">Location: {{ turf.turf_location }}</h5>
-<h5 class="turfhead">Phone: {{ turf.turf_phone }}</h5>
+<div class="turfhead" style="margin-top: -2.5%">
+  <h1>{{ turf.turf_name }} Details</h1>
+  <h5>Location: {{ turf.turf_location }}</h5>
+  <h5>Phone: {{ turf.turf_phone }}</h5>
+</div>
 
 <div class="turftab">
   {% if hosted_games|length==0 %}

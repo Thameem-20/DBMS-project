@@ -1,7 +1,16 @@
 {% extends 'layout.html' %} {% block title %}Turf Reviews for {{ turf.turf_name
 }}{% endblock title %} {% block body %}
+<a
+  class="btn btn-primary"
+  style="margin: 0.5%"
+  href="{{ url_for('dashboard') }}"
+>
+  Back
+</a>
 <div class="secbody">
-  <h1 class="turfhead">Reviews for {{ turf.turf_name }}</h1>
+  <h1 class="turfhead" style="margin-top: -2.5%">
+    Reviews for {{ turf.turf_name }}
+  </h1>
   <br />
   {% if reviews |length==0 %}
   <div class="alert alert-dark" role="alert">
