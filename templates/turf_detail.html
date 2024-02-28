@@ -1,6 +1,12 @@
-{% extends 'layout.html' %}
-{% block title %} Turf Details {% endblock title %}
+{% extends 'layout.html' %} {% block title %} Turf Details {% endblock title %}
 {% block body %}
+<a
+  class="btn btn-primary"
+  style="margin: 0.5%"
+  href="{{ url_for('dashboard') }}"
+>
+  Back
+</a>
 <h1 class="turfhead">{{ turf.turf_name }} Details</h1>
 <h5 class="turfhead">Location: {{ turf.turf_location }}</h5>
 <h5 class="turfhead">Phone: {{ turf.turf_phone }}</h5>
@@ -32,11 +38,18 @@
         <td>{{ game.game_time.strftime('%d-%m-%Y') }}</td>
         <td>{{ game.game_time.strftime('%H:%M') }}</td>
         <td>
-          <a class="btn btn-success"
+          <a
+            class="btn btn-success"
             href="{{ url_for('join_game', turf_id=turf.id, game_id=game.id) }}"
-            >Join Game</a>
-          {% if current_user.is_authenticated and current_user.username == game.host_name and current_user.id == game.turf.user_id %}
-          <form method="POST" action="{{ url_for('delete_game', game_id=game.id) }}" style="display: inline">
+            >Join Game</a
+          >
+          {% if current_user.is_authenticated and current_user.username ==
+          game.host_name and current_user.id == game.turf.user_id %}
+          <form
+            method="POST"
+            action="{{ url_for('delete_game', game_id=game.id) }}"
+            style="display: inline"
+          >
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
           {% endif %}
@@ -49,7 +62,9 @@
   <br />
   <!-- Host Game Option -->
   {% if current_user.is_authenticated %}
-  <a class="btn btn-danger" href="{{ url_for('host_game', turf_id=turf.id) }}">Host a Game</a>
+  <a class="btn btn-danger" href="{{ url_for('host_game', turf_id=turf.id) }}"
+    >Host a Game</a
+  >
   {% endif %}
 </div>
 {% endblock body %}
