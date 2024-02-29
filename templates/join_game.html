@@ -1,15 +1,7 @@
 {% extends 'layout.html' %} {% block title %} Join Game {% endblock title %} {%
 block body %}
-<a
-  class="btn btn-primary"
-  style="margin: 0.5%"
-  href="{{ url_for('turf_detail',turf_id=turf.id) }}"
->
-  Back
-</a>
-<div class="turfhead" style="margin-top: -2.5%;">
-<h1 >Join Game on {{ turf.turf_name }}</h1>
-
+<h1 class="turfhead">Join Game on {{ turf.turf_name }}</h1>
+<div class="turfhead">
   <p style="font-weight: bold">
     Host Name: {{game.host_name}}
     <br />
@@ -19,6 +11,7 @@ block body %}
   </p>
 </div>
 
+<!-- Display Players List -->
 <div class="turftab">
   <h2>Players List</h2>
   <table border="1" class="table table-striped">
@@ -37,13 +30,13 @@ block body %}
         <td>{{ player.player_address }}</td>
         <td>{{ player.player_phone }}</td>
         <td>
-          {% if player.player_name == current_user.username %}
+          {% if current_user.username == game.host_name %}
           <form
             method="POST"
-            action="{{ url_for('leave_game', turf_id=turf.id, game_id=game.id) }}"
+            action="{{ url_for('remove_player', player_id=player.id) }}"
+            style="display: inline"
           >
-            <input type="hidden" name="player_id" value="{{ player.id }}" />
-            <button class="btn btn-danger" type="submit">Leave Game</button>
+            <button type="submit" class="btn btn-danger">Remove</button>
           </form>
           {% endif %}
         </td>
@@ -51,9 +44,9 @@ block body %}
       {% endfor %}
     </tbody>
   </table>
+  <br />
+  <br />
 
-  <br />
-  <br />
   <button
     class="btn btn-primary"
     id="toggleJoinGameFormBtn"

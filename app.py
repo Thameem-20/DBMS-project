@@ -283,6 +283,19 @@ def delete_game(game_id):
         flash('You are not authorized to delete this game.', 'danger')
     return redirect(url_for('turf_detail', turf_id=game.turf_id))
 
+@app.route('/remove_player/<int:player_id>', methods=['POST'])
+@login_required
+def remove_player(player_id):
+    player = Player.query.get_or_404(player_id)
+    game = player.game
+    # Check if the current user is the host of the game
+    if current_user.username == game.host_name:
+        db.session.delete(player)
+        db.session.commit()
+        flash('Player removed successfully!', 'success')
+    else:
+        flash('You are not authorized to remove this player.', 'danger')
+    return redirect(url_for('join_game', turf_id=game.turf_id, game_id=game.id))
 
 if __name__ == '__main__':
     if __name__ == '__main__':
