@@ -1,3 +1,7 @@
+html,
+body {
+  overflow-x: hidden;
+}
 body {
   background-image: url(../img/17580.jpg);
   background-size: 100% 180%;

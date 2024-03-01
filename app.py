@@ -211,7 +211,7 @@ def join_game(turf_id, game_id):
         flash('Joined the game successfully!', 'success')
         
         # Redirect to the players list after joining the game
-        return redirect(url_for('players_list', game_id=game.id))
+        return redirect(url_for('join_game',turf_id=turf.id, game_id=game.id))
 
     return render_template('join_game.html', turf=turf, game=game)
 
@@ -288,7 +288,6 @@ def delete_game(game_id):
 def remove_player(player_id):
     player = Player.query.get_or_404(player_id)
     game = player.game
-    # Check if the current user is the host of the game
     if current_user.username == game.host_name:
         db.session.delete(player)
         db.session.commit()
