@@ -1,0 +1,15 @@
+.regimp {
+  border-radius: 5px;
+  border: 2px solid #300443;
+}
+
+.regsub {
+  width: 29.5%;
+  margin: 0 auto;
+  background-color: white;
+  border: 3px solid #300443;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}

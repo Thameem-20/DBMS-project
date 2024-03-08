@@ -89,10 +89,10 @@ class TurfReview(db.Model):
 
 
 class RegisterForm(FlaskForm):
-    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
-    email = StringField(validators=[InputRequired(), Email(message="Invalid email"), Length(max=120)], render_kw={"placeholder": "Email"})
-    password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
-    submit = SubmitField("Register")
+    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"class": "regimp","placeholder": "Username"})
+    email = StringField(validators=[InputRequired(), Email(message="Invalid email"), Length(max=120)], render_kw={"class": "regimp","placeholder": "Email"})
+    password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"class": "regimp","placeholder": "Password"})
+    submit = SubmitField("Submit", render_kw={"class": "regsub",})
 
     def validate_username(self, username):
         existing_user_username = User.query.filter_by(username=username.data).first()
@@ -203,14 +203,12 @@ def join_game(turf_id, game_id):
         player_address = request.form.get('player_address')
         player_phone = request.form.get('player_phone')
 
-        # Create a new player for the game
         new_player = Player(game_id=game.id, player_name=player_name, player_address=player_address, player_phone=player_phone)
         db.session.add(new_player)
         db.session.commit()
 
         flash('Joined the game successfully!', 'success')
         
-        # Redirect to the players list after joining the game
         return redirect(url_for('join_game',turf_id=turf.id, game_id=game.id))
 
     return render_template('join_game.html', turf=turf, game=game)
