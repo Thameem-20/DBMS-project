@@ -12,4 +12,9 @@
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: 500;
+  transition: transform 0.1s;
+}
+.regsub:hover {
+  color: blueviolet;
+  transform: scale(1.05);
 }

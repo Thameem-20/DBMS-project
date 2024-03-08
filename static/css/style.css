@@ -156,6 +156,10 @@ body {
   position: absolute;
   top: 80px;
 }
+.mainb1 {
+  margin-top: 10%;
+  top: 80px;
+}
 .reviewsec {
   border: 2px solid black;
 }

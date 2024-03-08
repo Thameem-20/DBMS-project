@@ -89,10 +89,10 @@ class TurfReview(db.Model):
 
 
 class RegisterForm(FlaskForm):
-    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"class": "regimp","placeholder": "Username"})
-    email = StringField(validators=[InputRequired(), Email(message="Invalid email"), Length(max=120)], render_kw={"class": "regimp","placeholder": "Email"})
-    password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"class": "regimp","placeholder": "Password"})
-    submit = SubmitField("Submit", render_kw={"class": "regsub",})
+    username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"class": "regimp","placeholder": "Enter username"})
+    email = StringField(validators=[InputRequired(), Email(message="Invalid email"), Length(max=120)], render_kw={"class": "regimp","placeholder": "Enter email"})
+    password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"class": "regimp","placeholder": "Enter password"})
+    submit = SubmitField("Submit", render_kw={"class": "regsub"})
 
     def validate_username(self, username):
         existing_user_username = User.query.filter_by(username=username.data).first()
@@ -108,8 +108,8 @@ class RegisterForm(FlaskForm):
 
             
 class LoginForm(FlaskForm):
-    username_email = StringField(validators=[InputRequired(), Length(min=4, max=120)], render_kw={"placeholder": "Username or Email"})
-    password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
+    username_email = StringField(validators=[InputRequired(), Length(min=4, max=120)], render_kw={"class": "regimp","placeholder": "Username or Email"})
+    password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"class": "regimp","placeholder": "Password"})
     submit = SubmitField("Login")
 
 class ReviewForm(FlaskForm):
