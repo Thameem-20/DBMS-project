@@ -6,6 +6,7 @@
 .regsub {
   width: 29.5%;
   margin: 0 auto;
+  width: auto;
   background-color: white;
   border: 3px solid #300443;
   border-radius: 5px;
