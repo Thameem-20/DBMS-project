@@ -1,0 +1,43 @@
++-------------+                          +-------------+
+|    User     |                          |    Turf     |
++-------------+                          +-------------+
+| id          |                          | id          |
+| username    |                          | turf_name   |
+| email       |                          | turf_location|
+| password    |                          | turf_phone  |
++-------------+                          +-------------+
+    |                                            |
+    |  Has many                                |
+    | Games                                    |
+    |                                           |
+    v                                           v
++-------------+                          +-------------+
+|    Game     |                          | TurfReview  |
++-------------+                          +-------------+
+| id          |                          | id          |
+| turf_id (FK)|--------------------------| turf_id (FK)|
+| host_name   |                          | review      |
+| host_phone  |                          | rating      |
+| game_time   |                          | user_id (FK)|
++-------------+                          +-------------+
+    |                                            |
+    |  Belongs to                               |
+    |                                           |
+    v                                           |
++-------------+                                    |
+|    Turf     |                                    |
++-------------+                                    |
+    |                                             |
+    |  Has many                                  |
+    | Games                                      |
+    |                                             |
+    v                                             |
++-------------+                                    |
+|   Player    |                                    |
++-------------+                                    |
+| id          |                                    |
+| game_id(FK) |<-----------------------------------+
+| player_name |
+| player_addr |
+| player_phone|
++-------------+
