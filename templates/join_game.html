@@ -19,6 +19,16 @@ block body %}
   </p>
 </div>
 
+<!-- {% if current_user.username == game.host_name %}
+<form
+  method="POST"
+  action="{{ url_for('remove_game', game_id=game.id) }}"
+  style="display: inline"
+>
+  <button type="submit" class="btn btn-danger">Delete Game</button>
+</form>
+{% endif %} -->
+
 <!-- Display Players List -->
 <div class="turftab">
   <h2>Players List</h2>
@@ -89,7 +99,7 @@ block body %}
 
       <label for="player_phone">Your Phone:</label>
       <input
-        type="text"
+        type="number"
         id="player_phone"
         name="player_phone"
         placeholder="Enter phone number"

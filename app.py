@@ -268,17 +268,18 @@ def leave_game(turf_id, game_id):
 
 from flask import redirect, url_for, flash
 
-@app.route('/delete_game/<int:game_id>', methods=['POST'])
+@app.route('/remove_game/<int:game_id>', methods=['POST'])
 @login_required
-def delete_game(game_id):
+def remove_game(game_id):
     game = Game.query.get_or_404(game_id)
-    # Check if the current user is the host of the game and the turf owner
-    if current_user.username == game.host_name and current_user.id == game.turf.user_id:
+    # Check if the current user is the host of the game
+    if current_user.username == game.host_name:
+        # Delete the game
         db.session.delete(game)
         db.session.commit()
         flash('Game deleted successfully!', 'success')
     else:
-        flash('You are not authorized to delete this game.', 'danger')
+        flash('You are not authorized to delete this game!', 'danger')
     return redirect(url_for('turf_detail', turf_id=game.turf_id))
 
 @app.route('/remove_player/<int:player_id>', methods=['POST'])
