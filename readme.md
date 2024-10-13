@@ -28,7 +28,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/yourusername/sportshub.git
+[git clone https://github.com/yourusername/DBMS.git](https://github.com/Thameem-20/DBMS-project.git)
 Install dependencies:
 
 Copy code
